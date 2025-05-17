@@ -1,0 +1,169 @@
+const words = ['seat', 'pen', 'broad', 'vapor', 'ocean',
+    'red', 'plate', 'late', 'that', 'ring', 'swim', 'shown',
+    'path', 'law', 'list', 'hard', 'plate', 'block', 'two',
+    'pupil', 'were', 'lot', 'pay', 'would', 'tired', 'dull',
+    'mud', 'sky', 'grew', 'hard', 'ill', 'frame',
+    'sport', 'did', 'many', 'been', 'page', 'year', 'trail',
+    'earth', 'are', 'while', 'off', 'town', 'doing', 'size',
+    'steel', 'sale', 'swam', 'put', 'zero', 'week', 'mill',
+    'past', 'aside', 'her', 'cent', 'box', 'fuel', 'block',
+    'those', 'late', 'sun', 'map', 'silk', 'lady', 'meant',
+    'still', 'shine', 'range', 'loud', 'fox', 'gate', 'slide',
+    'each', 'nails', 'flag', 'exist', 'door', 'luck', 'down',
+    'poem', 'depth', 'press', 'crowd', 'herd', 'drink', 'worry',
+    'dried', 'dig', 'new', 'rest', 'play', 'win', 'strong'];
+
+    function getPassword() {
+        let length = document.getElementById('length').value;
+        if (length === '') {
+            length = 8; // Setting default length to 8
+        }
+        
+        const includeLowercase = document.getElementById('includeLowercase').checked;
+        const includeUppercase = document.getElementById('includeUppercase').checked;
+        const includeSymbols = document.getElementById('includeSymbols').checked;
+        const includeNumbers = document.getElementById('includeNumbers').checked;
+    
+        let chars = '';
+        if (includeLowercase) chars += 'abcdefghijklmnopqrstuvwxyz';
+        if (includeUppercase) chars += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        if (includeSymbols) chars += '!@#$%&';
+        if (includeNumbers) chars += '0123456789';
+    
+        let password = '';
+        for (let i = 0; i < length; i++) {
+            password += chars.charAt(Math.floor(Math.random() * chars.length));
+        }
+    
+        document.getElementById('password').value = password;
+    }
+    
+
+function randomNumber (l) {
+    return Math.floor(Math.random() * l);
+}
+
+function randomWord () {
+    const number = randomNumber(words.length);
+    return words[number];
+}
+
+
+
+
+CSS
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "sans";
+  user-select: none;
+}
+
+@font-face {
+  src: url("font/sans.ttf");
+  font-family: "sans";
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: #19172e;
+}
+
+h2 {
+  color: white;
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.inputBox {
+  width: 400px;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  border-radius: 20px;
+  backdrop-filter: blur(20px);
+  padding: 20px;
+}
+
+.inputBox input[type="text"],
+.inputBox input[type="number"],
+.inputBox input[type="checkbox"] {
+  width: calc(100% - 20px); 
+  height: 40px;
+  margin-bottom: 10px;
+  padding: 5px;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  outline: none;
+}
+.inputBox input[type="number"]::-webkit-inner-spin-button,
+.inputBox input[type="number"]::-webkit-outer-spin-button {
+  appearance: none;
+  margin: 0;
+}
+
+
+.inputBox label {
+  color: white;
+  font-size: 1rem;
+  display: block;
+  margin-bottom: 5px; 
+}
+
+.inputBox input[type="checkbox"] {
+  display: inline-block;
+  width: auto;
+  margin: 0 5px 0 0;
+  vertical-align: middle;
+}
+
+#btn {
+  cursor: pointer;
+  color: #fff;
+  background: #333;
+  font-size: 1rem;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+  text-align: center;
+  margin-top: 20px;
+}
+
+#btn:hover {
+  background: #1e8e3e;
+}
+
+footer {
+  text-align: center;
+  color: white;
+  font-size: 1rem;
+  position: fixed; 
+  bottom: 0;
+  left: 0; 
+  right: 0;
+  padding: 5px;
+  line-height: 3vh;
+}
+
+footer a:visited {
+  color: inherit;
+}
+
+.name {
+  text-decoration: none;
+  color: white;
+}
+
+.ProjectName {
+  color: white;
+  text-decoration: none;
+}
